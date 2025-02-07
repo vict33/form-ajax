@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="Windows-1251">
+  <title>Interacting with HTML Forms</title>
+  <script src="js/jquery-3.5.1.min.js"></script>
+
+<!-- Interacting with HTML Forms using jQuery
+     https://www.pdsa.com/Home/BlogPost/130
+
+     Text content that changes automatically can be paused, stopped or hidden
+     https://www.w3.org/WAI/standards-guidelines/act/rules/efbfc7/proposed
+-->
+</head>
+<body>
+
+<h4>Interacting with HTML Forms using jQuery</h4>
+
+<form>
+  <div class="row">
+    <label for="productID">Product ID</label>
+    <input id="productID" name="productID" type="text" data-onfocus="Enter a Product ID" value="0" />
+  </div>
+  <div class="row">
+    <label for="name">Product Name</label>
+    <input id="name" name="name" type="text" data-onfocus="Enter a Product Name" value="A New Product" />
+  </div>
+  <div class="row">
+    <label for="productNumber">Product Number</label>
+    <input id="productNumber" name="productNumber" type="text" data-onfocus="Enter a Product Number" value="NEW-999" />
+  </div>
+  <div class="row">
+    <label for="color">Color</label>
+    <input id="color" name="color" type="text" data-onfocus="Enter a Color" value="Red" />
+  </div>
+  <div class="row">
+    <label for="standardCost">Cost</label>
+    <input id="standardCost" name="standardCost" type="number" data-onfocus="Enter the Product Cost" value="10.00" />
+  </div>
+  <div class="row">
+    <label for="listPrice">Price</label>
+    <input id="listPrice" name="listPrice" type="number" data-onfocus="Enter the Product Price" value="25.00" />
+  </div>
+  <div class="row">
+    <label for="sellStartDate">Sell Start Date</label>
+    <input id="sellStartDate" name="sellStartDate" type="text" data-onfocus="Enter the date the Product can start selling" value="1/15/2021" />
+  </div>
+  <div class="row">
+    <label id="message" class="infoMessage"></label>
+    <label id="error" class="errorMessage"></label>
+  </div>
+  <div class="row" style="display: none">
+  <!--  в данном примере "прячем" кнопки, т.к. события для них пока не готовы -->
+    <button type="button" onclick="get();">
+      Get Products
+    </button>
+    <button type="button" onclick="getProduct();">
+      Get a Product
+    </button>
+    <button type="button" onclick="insertProduct();">
+      Insert Product
+    </button>
+    <button type="button" onclick="updateProduct();">
+      Update Product
+    </button>
+    <button type="button" onclick="deleteProduct();">
+      Delete Product
+    </button>
+  </div>
+</form><br/>
+
+<label id="lab1" class="" name="myLab1">Props: <span id="target1"></span></label><br/>
+<label id="lab2" class="" name="myLab2">Value: <span id="target2"></span></label><br/>
+
+<pre>
+HTML supports attributes named "data-" (pronounced data dash) where you can add anything you want after the dash.
+HTML ignores these attributes when drawing the page. Instead, these data- attributes are for you to use however you want.
+</pre>
+
+
+<script type="text/javascript">
+
+  function displayMessage(msg) {
+    //console.log('display-Message');
+    let targ1 = document.getElementById('target1');
+    let targ2 = document.getElementById('target2');
+    if(msg != "") {
+      let act = document.activeElement;
+      targ1.textContent = act.name + ': ' + msg;
+      targ2.textContent = act.value;
+    } else {
+      targ1.textContent = "";
+      targ2.textContent = "";
+    }
+  }
+
+  function displayInput() {
+    //console.log('display-Input');
+    let targ2 = document.getElementById('target2');
+    let act = document.activeElement;
+    targ2.textContent = act.value;
+  }
+
+  $(document).ready(function () {
+    // Display message using form event 'focus'
+    $("input").on('focus', function () {
+      //console.log('on-focus');
+      //получаем атрибут 'data-onfocus'. Браузер, подобные атрибуты (like as "data-") игнорирует
+      let msg = $(this).data("onfocus");
+      displayMessage(msg);
+    });
+  
+    // Clear message using form event 'blur'
+    $("input").on('blur', function () {
+      //console.log('on-blur');
+      displayMessage("");
+    });
+
+    // Display input text using form event 'input'
+    $("input").on('input', function () {
+      //console.log('on-input');
+      displayInput();
+    });
+  });
+</script>
+
+</body>
+</html>

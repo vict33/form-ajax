@@ -1,0 +1,11 @@
+<!-- tutorials.xml -->
+<tutorials>
+    <tutorial>
+        <id>1</id>
+        <title>Introduction to JavaScript</title>
+    </tutorial>
+    <tutorial>
+        <id>2</id>
+        <title>Advanced CSS Techniques</title>
+    </tutorial>
+</tutorials>

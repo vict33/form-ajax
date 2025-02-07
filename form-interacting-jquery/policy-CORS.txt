@@ -1,0 +1,17 @@
+CORS policy blocking access to xml files
+
+
+After some searching: The default policy on chrome/chromium is not to allow the file: protocol to load local files.
+
+You can bypass this policy by starting the browser with the --allow-file-access-from-files option (f.ex. start the browser from the command line and add the option).
+
+This cannot be fixed by other means because there is no server involved in the file: protocol. Therefore, no CORS headers can be provided to solve the problem. The real problem is that CORS on the file: protocol only makes sense on directories outside the base-path of the file and script running. Atpack only runs in a sub-hierarchy of the base-path. However, the designers/developers seem to be of other opinion.
+
+Edge complains about context restrictions. That may be CORS related, but may also be file-access rules on the windows filesystem. I have no windows, so I cannot get further into that problem.
+
+
+
+
+Yep, thanks, -–allow-file-access-from-files works.
+Is it worth adding this info to the readme?
+(all chrome instances have to be closed first)

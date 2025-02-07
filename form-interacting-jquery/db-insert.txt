@@ -1,0 +1,7 @@
+Insert Record in Database Using Textboxes in JavaScript
+https://www.c-sharpcorner.com/UploadFile/5089e0/insert-record-in-database-using-textboxes-in-javascript/
+Introduction
+
+In this article, I will explain how to insert records to a database using TextBox in JavaScript.
+Note: This program will work only with Internet Explorer.
+First I created a database EmpDetail. Then I created a table in this database.

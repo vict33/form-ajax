@@ -1,0 +1,43 @@
+Web Accessibility Initiative (WAI)
+https://www.w3.org/WAI
+Making the Web Accessible
+Strategies, standards, and supporting resources to help you make the Web more accessible to people with disabilities.
+
+W3C
+The World Wide Web Consortium (W3C) develops international standards for the Web: HTML, CSS, and many more.
+
+WAI
+The W3C Web Accessibility Initiative (WAI) develops standards and support materials to help you understand and implement accessibility.
+
+You
+You can use W3C WAI resources to make your websites, applications, and other digital creations more accessible and usable to everyone.
+
+
+
+
+Introduction to Web Accessibility
+https://www.w3.org/WAI/fundamentals/accessibility-intro/
+Summary
+When websites and web tools are properly designed and coded, people with disabilities can use them. However, currently many sites and tools are developed with accessibility barriers that make them difficult or impossible for some people to use.
+
+Making the web accessible benefits individuals, businesses, and society. International web standards define what is needed for accessibility.
+
+
+
+
+All ACT Rules
+https://www.w3.org/WAI/standards-guidelines/act/rules/
+Summary
+This page contains list of ACT Rules to test conformance Web Content Accessibility Guidelines (WCAG) , WAI-ARIA  and other accessibility practices. ACT Rules for WCAG 2 are formally approved by the Accessibility Guidelines Working Group. Proposed rules have not yet completed the approval process. ACT Rules are informative — that means they are not required for determining conformance to WCAG or ARIA. Learn more from About ACT Rules.
+
+--Далее, выборочно приведено несколько правил (не весь текст, только Description)
+
+Text content that changes automatically can be paused, stopped or hidden
+https://www.w3.org/WAI/standards-guidelines/act/rules/efbfc7/proposed
+Description
+This rule checks that for any text content that regularly changes automatically, there are instruments to pause, stop, or hide it or to control its changing frequency.
+
+HTML page title is descriptive
+https://www.w3.org/WAI/standards-guidelines/act/rules/c4a8a4/
+Description
+This rule checks that the first title in an HTML web page describes the topic or purpose of that page.

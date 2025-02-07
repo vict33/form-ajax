@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+
+<!-- How to Load XML from JavaScript ?
+     https://www.geeksforgeeks.org/how-to-load-xml-from-javascript/
+-->
+</head>
+
+<body>
+  <h3>How to Load XML from JavaScript?</h3>
+
+<script>
+  const xmlString =
+     `<tutorials>
+        <tutorial>
+          <id>1</id>
+          <title>
+            Introduction to JavaScript
+          </title>
+        </tutorial>
+        <tutorial>
+          <id>2</id>
+          <title>
+            Advanced CSS Techniques
+          </title>
+        </tutorial>
+     </tutorials>`;
+
+  const parser = new DOMParser();
+  const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+  const tutorialsNode = xmlDoc.querySelector("tutorials");
+
+  const tutorials = tutorialsNode.querySelectorAll("tutorial");
+  tutorials.forEach((tutorial) => {
+    const id = tutorial.querySelector("id").textContent;
+    const title = tutorial.querySelector("title").textContent;
+    console.log(`Tutorial ID: ${id}, Title: ${title}`);
+  });
+</script>
+
+</body>
+</html>

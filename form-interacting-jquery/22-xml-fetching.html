@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+
+<!-- How to Load XML from JavaScript ?
+     https://www.geeksforgeeks.org/how-to-load-xml-from-javascript/
+-->
+</head>
+
+<body>
+  <h3>How to Load XML from JavaScript?</h3>
+
+<script>
+  fetch("tutorials.xml")
+    .then((response) => response.text())
+    .then((xmlString) => {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+
+      const tutorials = xmlDoc.querySelectorAll("tutorial");
+      tutorials.forEach((tutorial) => {
+        const id = tutorial.querySelector("id").textContent;
+        const title = tutorial.querySelector("title").textContent;
+        console.log(`Tutorial ID: ${id}, Title: ${title}`);
+    });
+  });
+</script>
+
+<pre>
+Access to fetch at 'file:///D:/Work/2025/tmp-20250117/form-interacting-jquery/tutorials.xml'
+from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported
+for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app.
+</pre>
+
+</body>
+</html>
