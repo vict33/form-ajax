@@ -1,0 +1,31 @@
+Современный учебник JavaScript
+https://learn.javascript.ru/
+
+Свойства и методы формы
+https://learn.javascript.ru/form-elements
+
+
+
+
+HTML Tutorial
+https://www.w3schools.com/html/default.asp
+
+HTML Encoding (Character Sets)
+https://www.w3schools.com/html/html_charset.asp
+
+
+
+
+DOM
+На чём стоят три слона, на которых держится веб?
+https://doka.guide/js/dom
+
+Element
+Теги HTML превращаются в элементы JavaScript, чтобы их можно было потрогать из кода.
+https://doka.guide/js/element
+https://doka.guide/js/element/demos/dom
+https://doka.guide/js/element/demos/dom-html
+
+::before
+Удобный способ создать элемент без дополнительной HTML-разметки. 
+https://doka.guide/css/before

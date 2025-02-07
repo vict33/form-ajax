@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="Windows-1251">
+  <title>Forms, elements. Part 2</title>
+
+  <!-- Свойства и методы формы
+       https://learn.javascript.ru/form-elements
+   -->
+</head>
+<body>
+
+
+<h4>Form, id = form</h4>
+<form id="form">
+  <input type="text" name="login"><br/>
+</form>
+
+<pre>
+Сокращённая форма записи: form.name
+
+Warning: Если мы получаем элемент, а затем меняем его свойство name,
+то он всё ещё будет доступен под старым именем (также, как и под новым).
+</pre><hr/>
+
+<script>
+  //alert(form.elements.login == form.login); // true, это одинаковые <input>
+  if(form.elements.login == form.login) {
+    console.log("это одинаковые <input>");
+  }
+
+  form.login.name = "username"; // изменяем свойство name у элемента input
+
+  // form.elements обновили свои имена:
+  //alert(form.elements.login); // undefined
+  //alert(form.elements.username); // input
+
+  // при этом, в form мы можем использовать оба имени: новое и старое
+  //alert(form.username == form.login); // true
+  if(form.username == form.login) {
+    console.log("это эквивалентные имена");
+  }
+</script>
+
+
+
+
+<h4>Form, id = formNext</h4>
+<form id="formNext">
+  <input type="text" name="login"><br/>
+</form>
+
+<pre>
+Обратная ссылка: element.form
+
+Для любого элемента форма доступна через element.form.
+Так что форма ссылается на все элементы, а эти элементы ссылаются на форму.
+</pre><hr/>
+
+<script>
+  // form -> element
+  let login = formNext.login;
+
+  // element -> form
+  //alert(login.form); // HTMLFormElement
+  console.log(login.form);
+</script>
+
+</body>
+</html>

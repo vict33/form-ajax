@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="Windows-1251">
+  <title>DOM, element</title>
+  <link rel="stylesheet" href="DOM-Element.css">
+
+<!--
+  DOM
+  На чём стоят три слона, на которых держится веб?
+  https://doka.guide/js/dom
+
+  Element
+  Теги HTML превращаются в элементы JavaScript, чтобы их можно было потрогать из кода.
+  https://doka.guide/js/element
+  https://doka.guide/js/element/demos/dom
+  https://doka.guide/js/element/demos/dom-html
+
+  ::before
+  Удобный способ создать элемент без дополнительной HTML-разметки. 
+  https://doka.guide/css/before
+
+  Автор советует
+  Если нужно добавить текст в элемент, то всегда используйте свойство textContent.
+  Другие свойства обрабатывают HTML, это может привести к дырам в безопасности.
+
+  Для работы с классами элемента есть удобные методы, доступные через свойство classList:
+   • добавить класс — метод add();
+   • удалить класс — метод remove().
+-->
+</head>
+<body class="">
+
+<pre>
+HTML-элементы содержат свойства, которые можно разделить на группы:
+ • свойства, связанные с HTML-атрибутами: ID, классы, стили и так далее;
+ • свойства и методы связанные с обходом DOM: получение дочерних элементов, родителя, соседей;
+ • информация о содержимом;
+ • специфические свойства элемента.
+Первые три группы свойств есть у всех элементов. Специфические свойства отличаются в зависимости от типа элемента.
+Например, у полей ввода есть свойства, которых нет у параграфов и блоков: value, type и другие.
+</pre><br/>
+
+<pre>
+Свойства, связанные с HTML-атрибутами
+Читать и записывать значения HTML-атрибутов можно при помощи свойств элемента.
+Название обычно совпадает с названием атрибута.
+
+const element = document.getElementsByTagName('div')[0];
+element.style.backgroundColor = 'beige'; // CSS-свойство background-color
+element.style.color = 'gray';            // CSS-свойство color
+element.style.marginTop = '20px';        // CSS-свойство margin-top
+</pre><br/>
+
+<pre>
+Свойства и методы, связанные с DOM
+ • children — список дочерних элементов;
+ • parentElement — получить родительский элемент;
+ • nextElementSibling и previousElementSibling — получить следующий или предыдущий узел-сосед;
+ • getElementById
+ • getElementsByClassName() — поиск среди дочерних элементов по названию класса;
+ • getElementsByName()
+ • getElementsByTagName() — поиск среди дочерних элементов по названию тега;
+ • getElementsByTagNameNS()
+ • querySelector() — поиск первого дочернего элемента, подходящего под CSS-селектор;
+ • querySelectorAll() — поиск всех дочерних элементов подходящих под CSS-селектор;
+С помощью этих свойств и методов можно перемещаться по дереву и даже обойти все его элементы, если это нужно.
+</pre><br/>
+
+<header class="playground">
+  <ul id="main-menu" class="menu">
+    <li id="1" class="menu-item"><a class="" href="#">Главная</a></li>
+    <li id="2" class="menu-item"><a class="" href="#">Статьи</a></li>
+    <li id="3" class="menu-item"><a class="" href="#">Контакты</a></li>
+  </ul>
+</header>
+
+<article id="description" class="description">
+  <h1>Кто вокруг?</h1>
+  <p>Кликай на элементы страницы, чтобы получить информацию об их окружении</p>
+  <h2></h2>
+  <p id="parent"></p>
+  <p id="prev"></p>
+  <p id="next"></p>
+  <p id="children"></p>
+</article>
+
+<script type="text/javascript">
+  console.log('run: ' + new Date().toLocaleString("ru"))
+
+  const currentInfo = document.getElementsByTagName('h2')[0]
+  const parentInfo = document.getElementById('parent')
+  const prevSiblingInfo = document.getElementById('prev')
+  const nextSiblingInfo = document.getElementById('next')
+  const childrenInfo = document.getElementById('children')
+  let active
+
+  window.addEventListener('click', function(event) {
+    let current = event.target
+
+    if (active) {
+      active.classList.remove('active')
+    }
+    current.classList.add('active')
+
+    currentInfo.innerText = 'Выделен ' + getInfo(current)
+    parentInfo.textContent = 'Родитель: ' + getInfo(current.parentElement)
+    nextSiblingInfo.textContent = 'Следующий сосед: ' + getInfo(current.nextElementSibling)
+    prevSiblingInfo.textContent = 'Предыдущий сосед: ' + getInfo(current.previousElementSibling)
+    childrenInfo.textContent = 'Дочерних элементов: ' + current.children.length
+
+    active = current
+  })
+
+  function getInfo(el) {
+    if (!el) {
+      return 'Нет'
+    }
+    return `<${el.tagName.toLowerCase()}>` + (el.id ? ', id: ' + el.id : '')
+  }
+</script>
+
+</body>
+</html>

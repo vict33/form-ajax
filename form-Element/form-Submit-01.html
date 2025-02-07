@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page login</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4>qwerty</h4>
+<form id="form" method="post">
+  <label>User:</label><input type="text" name="usName"><br/>
+  <label>Pass:</label><input type="password" name="usPass"><br/>
+
+  <input type="submit" value="Login" onclick="setLogin()">
+</form>
+
+<script type="text/javascript">
+  function setLogin() {
+    let user = form.elements.usName;
+    console.log("user: " + user.value);
+
+    if(user.value == "") {
+      user.value = "vasya";
+    }
+    console.log("user: " + user.value);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="Windows-1251">
+  <title>Forms, elements. Part 1</title>
+
+  <!-- Свойства и методы формы
+       https://learn.javascript.ru/form-elements
+  -->
+</head>
+<body>
+
+
+<h4>Form, id = f1</h4>
+<form id="f1" name="my">
+  <label>One:</label><input type="text" name="one" value="1"><br/>
+  <label>Two:</label><input type="text" name="two" value="2"><br/>
+</form><hr/>
+
+<script type="text/javascript">
+  //получаем форму по имени "my"
+  let form = document.forms.my;
+
+  //получаем элемент из формы
+  let elem  = form.elements.one;
+
+  //alert(elem.value); // 1
+  console.log("elem.value: " + elem.value);
+</script>
+
+
+
+
+<h4>Form, id = f2</h4>
+<form id="f2">
+  <input type="radio" name="age" value="10">equal 10</input><br/>
+  <input type="radio" name="age" value="20">equal 20</input><br/>
+</form><hr/>
+
+<script type="text/javascript">
+  //получаем форму по индексу, в данном примере это 2-я по счету форма
+  let formNext = document.forms[1];
+
+  //получаем все элементы "age" из формы
+  let ageElems = formNext.elements.age;
+
+  //получаем элемент "age" по индексу
+  //alert(ageElems[0]); // [object HTMLInputElement]
+  console.log(ageElems[0]);
+</script>
+
+</body>
+</html>

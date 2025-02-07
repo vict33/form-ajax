@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>page login</title>
+
+  <!-- How to Submit a Form with JavaScript – JS Submit Button Example
+       https://www.freecodecamp.org/news/how-to-submit-a-form-with-javascript
+  -->
+</head>
+<body>
+
+
+<h4>qwerty</h4>
+<form id="form">
+  <label>User:</label><input type="text" name="usName"><br/>
+  <label>Pass:</label><input type="password" name="usPass"><br/>
+
+  <input type="submit" value="Login">
+</form>
+
+<script type="text/javascript">
+  let myForm = document.getElementById("form");
+  console.log(myForm);
+
+  myForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let user = document.getElementsByName("usName")[0];
+    let pass = document.getElementsByName("usPass")[0];
+
+    if (user.value == "" || pass.value == "") {
+      //alert("Ensure you input a value in both fields!");
+      console.log("Ensure you input a value in both fields!");
+    } else {
+      //alert("Success!");
+      console.log(`This form has a username of "${user.value}" and password of "${pass.value}"`);
+    }
+
+    user.value = '';
+    pass.value = '';
+  });
+</script>
+
+</body>
+</html>
